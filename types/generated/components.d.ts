@@ -1,5 +1,29 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FooterFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_columns';
+  info: {
+    displayName: 'footer_column';
+    icon: 'bulletList';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'footer.link-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FooterLinkItem extends Struct.ComponentSchema {
+  collectionName: 'components_footer_link_items';
+  info: {
+    displayName: 'link_item';
+    icon: 'attachment';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +89,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'footer.footer-column': FooterFooterColumn;
+      'footer.link-item': FooterLinkItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
