@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_leads",
+  "info": {
+    "singularName": "contact-lead",
+    "pluralName": "contact-leads",
+    "displayName": "Contact Lead",
+    "description": "Form liên hệ khách hàng gửi về"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "processing", "done", "spam"],
+      "default": "new",
+      "required": true
+    },
+    "note": {
+      "type": "text"
+    },
+    "reply": {
+      "type": "text"
+    },
+    "source": {
+      "type": "string",
+      "default": "website"
+    }
+  }
+}
