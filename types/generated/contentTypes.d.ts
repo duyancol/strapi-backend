@@ -913,6 +913,35 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNotifySettingNotifySetting extends Struct.SingleTypeSchema {
+  collectionName: 'notify_settings';
+  info: {
+    description: 'C\u1EA5u h\u00ECnh user nh\u1EADn th\u00F4ng b\u00E1o email';
+    displayName: 'Notify Setting';
+    pluralName: 'notify-settings';
+    singularName: 'notify-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contact_notify_user_ids: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::notify-setting.notify-setting'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
@@ -1463,6 +1492,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
+      'api::notify-setting.notify-setting': ApiNotifySettingNotifySetting;
       'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

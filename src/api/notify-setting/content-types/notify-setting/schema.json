@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "notify_settings",
+  "info": {
+    "singularName": "notify-setting",
+    "pluralName": "notify-settings",
+    "displayName": "Notify Setting",
+    "description": "Cấu hình user nhận thông báo email"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contact_notify_user_ids": {
+      "type": "json"
+    }
+  }
+}
